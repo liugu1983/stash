@@ -5,7 +5,6 @@
 class game{
     public:
         arenamap Map;
-        snake    S1;
         unsigned int round;
         bool     isGameOn;
     public:

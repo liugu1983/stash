@@ -2,8 +2,7 @@
 
 void game::init()
 {
-    Map = arenamap(30,20);
-    S1 = snake(Map);
+    Map = arenamap(20,30);
 }
 
 void game::start()
