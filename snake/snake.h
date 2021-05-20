@@ -14,11 +14,14 @@ class snake{
         unsigned int len;
         vector<snode > body;
         arenamap &smap;
+        bool dead;
 
     public:
-        snake(arenamap &_smap):len(0),smap(_smap){}
+        snake(arenamap &_smap):len(0),smap(_smap),dead(false){}
         ~snake(){}
+        void init();
         void print_nc();
+        void move();
 };
 
 #endif

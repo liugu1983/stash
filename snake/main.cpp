@@ -4,11 +4,12 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     game Game;
-    Game.init();
+    
 
     /*ncurses gui start*/
     initscr();
-    
+    curs_set(0);    //set cursor invisible
+    Game.init();
     Game.start();
     endwin();
     return 0;

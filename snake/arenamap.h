@@ -13,9 +13,21 @@ class mapnode{
     public:
         mapnode(unsigned int _id=0, unsigned int _x=0, unsigned int _y=0, bool _isWall=false)
         :id(_id),x(_x),y(_y),isWall(_isWall){
-            isOpen = ~isWall;
+            isOpen = !_isWall;
         }
         ~mapnode(){}
+};
+
+class applenode{
+    public:
+        unsigned int id;    //the same id of mapnode
+        unsigned int x;
+        unsigned int y;
+        bool     eaten;
+    public:
+        applenode(unsigned int _id=0,unsigned int _x=0, unsigned int _y=0, bool _eaten=false)
+        :id(_id),x(_x),y(_y),eaten(_eaten){}
+        ~applenode(){}
 };
 
 class arenamap{
@@ -23,6 +35,7 @@ class arenamap{
         unsigned int mapsize;
         unsigned int map_x;
         unsigned int map_y;
+        vector<applenode> vapple;
         vector<mapnode> vmap;
 
     public:
@@ -38,5 +51,23 @@ class arenamap{
         }
         ~arenamap(){}
         void print_nc();
+
+        unsigned int getOpenMapnodeNum(){
+            unsigned int ret = 0;
+            for(unsigned int i=0;i<vmap.size();i++){
+                if(vmap[i].isOpen)
+                    ret++;
+            }
+            return ret;
+        }
+        mapnode getAnOpenNode();
+        void setTaken(mapnode n){
+            n.isOpen = false;
+        }
+        void setOpen(mapnode n){
+            n.isOpen = true;
+        }
+        void generateAnApple();
+        size_t getAppleNum(){return vapple.size();}
 };
 #endif

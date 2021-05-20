@@ -12,6 +12,7 @@ class game{
         game(){}
         ~game(){}
         void init();
-        void start();
+        void start();   //start a round-based game
+        bool gameround();   //a round, return true if next round needed
 };
 #endif
