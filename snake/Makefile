@@ -1,5 +1,5 @@
 CC=g++
-CCFLAGS=
+CCFLAGS=-g
 OBJS=main.o arenamap.o snake.o game.o
 
 .PHONY:all clean

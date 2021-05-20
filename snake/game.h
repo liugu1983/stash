@@ -7,6 +7,7 @@ class game{
         arenamap Map;
         unsigned int round;
         bool     isGameOn;
+        snake    *S1;
     public:
         game(){}
         ~game(){}

@@ -1,2 +1,5 @@
 
 .vscode/c_cpp_properties.json
+snake/.vscode/launch.json
+.gitignore
+snake/.vscode/tasks.json
