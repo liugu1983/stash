@@ -10,6 +10,9 @@ void arenamap::print_nc()
             if(vmap[nodeId].isWall){
                 mvprintw(vmap[nodeId].x,vmap[nodeId].y,"#");
             }
+            if(vmap[nodeId].isOpen){
+                mvprintw(vmap[nodeId].x,vmap[nodeId].y," ");
+            }
         }
     //print apples
     for(unsigned int i=0;i<vapple.size();i++){
@@ -41,5 +44,6 @@ void arenamap::generateAnApple()
     vapple.push_back(Apple);
 
     //Apple node is no longer open
+    setApple(pick);
     setTaken(pick);
 }

@@ -1,8 +1,12 @@
 #ifndef __ARENAMAP_H_
 #define __ARENAMAP_H_
+#include <utility>
 #include <vector>
 #include <ncurses.h>
 using namespace std;
+
+#define snode pair<unsigned int, unsigned int>
+
 class mapnode{
     public:
         unsigned int id;
@@ -10,6 +14,7 @@ class mapnode{
         unsigned int y;
         bool         isWall;
         bool         isOpen;
+        bool         isApple;
     public:
         mapnode(unsigned int _id=0, unsigned int _x=0, unsigned int _y=0, bool _isWall=false)
         :id(_id),x(_x),y(_y),isWall(_isWall){
@@ -62,10 +67,28 @@ class arenamap{
         }
         mapnode getAnOpenNode();
         void setTaken(mapnode n){
-            n.isOpen = false;
+            vmap[n.id].isOpen = false;
+        }
+        void setTaken(unsigned int x, unsigned int y){
+            vmap[x*map_y+y].isOpen = false;
+        }
+        void setTaken(snode s){
+            vmap[s.first*map_y+s.second].isOpen = false;
         }
         void setOpen(mapnode n){
-            n.isOpen = true;
+            vmap[n.id].isOpen = true;
+        }
+        void setOpen(unsigned int x, unsigned int y){
+            vmap[x*map_y+y].isOpen = true;
+        }
+        void setOpen(snode s){
+            vmap[s.first*map_y+s.second].isOpen = true;
+        }
+        void setApple(mapnode n){
+            vmap[n.id].isApple = true;
+        }
+        void setNotApple(mapnode n){
+            vmap[n.id].isApple = false;
         }
         void generateAnApple();
         size_t getAppleNum(){return vapple.size();}

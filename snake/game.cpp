@@ -20,10 +20,15 @@ void game::start()
     while(isGameOn){
         isGameOn = gameround();
         Map.print_nc();
+        refresh();
         S1->print_nc();
         refresh();
-        sleep_awhile(1.5);
+        mvprintw(1,31,"Round  = %3d\n",round);
+        mvprintw(2,31,"Length = %3d\n",S1->len);
+        
+        sleep_awhile(0.1);
     }  
+    getchar();
 }
 
 bool game::gameround()

@@ -1,18 +1,18 @@
 #ifndef __SNAKE_H_
 #define __SNAKE_H_
-#include <utility>
-#include <vector>
+
+#include <deque>
 #include <ncurses.h>
 #include "arenamap.h"
 using namespace std;
 
-#define snode pair<unsigned int, unsigned int>
+
 
 class snake{
     public:
         snode head;
         unsigned int len;
-        vector<snode > body;
+        deque<snode > body;
         arenamap &smap;
         bool dead;
 
@@ -22,6 +22,7 @@ class snake{
         void init();
         void print_nc();
         void move();
+        mapnode findway();
 };
 
 #endif
