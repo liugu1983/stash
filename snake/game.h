@@ -8,6 +8,7 @@ class game{
         unsigned int round;
         bool     isGameOn;
         snake    *S1;
+        snake    *S2;
     public:
         game(){}
         ~game(){}

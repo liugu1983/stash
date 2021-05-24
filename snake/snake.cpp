@@ -14,7 +14,7 @@ void snake::init()
 void snake::print_nc()
 {
     //TODO:Add print function here
-    
+    attron(COLOR_PAIR(color_id)); 
     for(unsigned int i=1;i<body.size();i++){
         mvprintw(body[i].first,body[i].second,"o");
     }
@@ -24,11 +24,14 @@ void snake::print_nc()
         mvprintw(head.first,head.second,"X");
     else
         mvprintw(head.first,head.second,"O");
+    attroff(COLOR_PAIR(color_id));
 }
 
 void snake::move()
 {
     //Move the snake a step
+    if(dead)
+        return;
 
     mapnode dest=findway();
 

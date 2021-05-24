@@ -15,14 +15,15 @@ class snake{
         deque<snode > body;
         arenamap &smap;
         bool dead;
-
+        unsigned int color_id;
     public:
-        snake(arenamap &_smap):len(0),smap(_smap),dead(false){}
+        snake(arenamap &_smap):len(0),smap(_smap),dead(false),color_id(0){}
         ~snake(){}
         void init();
         void print_nc();
         void move();
         mapnode findway();
+        void setColor(unsigned int color){color_id = color;}
 };
 
 #endif

@@ -15,9 +15,11 @@ void arenamap::print_nc()
             }
         }
     //print apples
+    attron(COLOR_PAIR(1));
     for(unsigned int i=0;i<vapple.size();i++){
         mvprintw(vapple[i].x,vapple[i].y,"@");
     }
+    attroff(COLOR_PAIR(1));
 }
 
 mapnode arenamap::getAnOpenNode()
